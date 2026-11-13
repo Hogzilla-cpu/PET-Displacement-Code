@@ -99,3 +99,10 @@ noise α = 0.5. Monte Carlo, 40 replicates, putamen, drug-driven tv-SRTM, RMSE i
 * The Fisher map ignores reference-region noise, so it is optimistic; confirm designs with `evaluate_design`.
 
 These numbers depend on the scenario. Re-run the notebook with your tracer, regions and drug PK.
+
+### ¹¹C versus ¹⁸F (notebook section 7)
+
+Same kinetics and starting count level, only the half-life differs. With a 150-min scan the best drug injection
+time is about 80 min for ¹¹C (70–100 min near-optimal) and about 100 min for ¹⁸F (90–110 min), at the same dose
+(about 80% peak occupancy). ¹⁸F cuts the error of every estimate by roughly 2–3×. A 240-min ¹⁸F scan makes the
+timing forgiving (about 120–170 min) and brings the E/K_E error down to about 4%.
