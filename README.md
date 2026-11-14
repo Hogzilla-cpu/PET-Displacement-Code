@@ -106,3 +106,15 @@ Same kinetics and starting count level, only the half-life differs. With a 150-m
 time is about 80 min for ¹¹C (70–100 min near-optimal) and about 100 min for ¹⁸F (90–110 min), at the same dose
 (about 80% peak occupancy). ¹⁸F cuts the error of every estimate by roughly 2–3×. A 240-min ¹⁸F scan makes the
 timing forgiving (about 120–170 min) and brings the E/K_E error down to about 4%.
+
+### Baseline BPND versus pre-drug time (`scripts/bp0_vs_pre_injection_time.py`)
+
+![Baseline BPND reliability vs drug injection time](figures/bp0_vs_pre_injection_time.png)
+
+Monte Carlo (500 realisations per point) of the example scenario at dose 23 (about 81% peak occupancy), sweeping
+the drug injection time from 15 to 140 min. The whole-scan drug-driven tv-SRTM always estimates BP0 more precisely
+than SRTM on the pre-drug frames alone, most of all with short baselines (putamen CV at 30 min: 15% vs 22%). Both
+reach about 3–4% CV by 60 min, 2% by 80 min and approach the 1.1% of a drug-free 150-min scan by 120 min. Below
+about 35 min the pre-drug SRTM is biased upward and the low-binding region (hippocampus) becomes unstable. The
+remaining −1% bias at long times is also present in the drug-free scan, so it comes from SRTM's model mismatch
+(blood volume ignored), not from the displacement. Re-run with `--n-rep`, `--t-inj`, or edit `REGIONS`/`DOSE`.
